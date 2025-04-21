@@ -1,0 +1,15 @@
+// 정수를 key로 두고 bool 배열을 값으로 받는 dictionary
+static Dictionary<int, bool[]> cardDeck = new Dictionary<int, bool[]>();
+cardDeck[1][5] = true;
+같은 코드가 왜 성립하는지 잘 모르겠다. 딕셔너리는 넣을 수 있는 매개변수의 제한이 없는 건가?
+=> 두 번 접근하는 코드다. 
+cardDeck[1]:
+딕셔너리에서 키가 1인 항목을 가져온다. 이건 bool[] 배열.
+[5]:
+그 배열에서 5번째 인덱스에 접근해서 값을 바꾼다.
+아래와 같다.
+bool[] array = cardDeck[1];
+array[5] = true;
+
+한 마디로 딕셔너리의 역할은 cardDeck[1] 여기까지였고,
+그 뒤에 [5]는 (배열)[5] 이런 느낌으로 사용된 거라고 볼 수 있다.
